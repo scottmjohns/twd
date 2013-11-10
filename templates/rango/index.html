@@ -1,0 +1,23 @@
+{% extends 'rango/base.html' %}
+
+{% block body_block %}
+	<div class='hero-unit'>
+		<h1>Ready to Rango</h1>
+		<p>Find, Add, Share and Rango useful links and resources.</p>
+	</div>
+	<div class="row-fluid">
+		<div class="span6">
+			<h2>Top Five Most Viewed Pages</h2>
+			{% if top_five_views %}
+			<ul>
+				{% for page in top_five_views %}
+				<li><a href="{{ page.url }}">{{ page.title }}</a> - {{ page.views }} views</li>
+				{% endfor %}
+			</ul>
+			{% else %}
+			<strong>No viewed pages at present.</strong>
+			{% endif %}
+		</div>
+	</div>
+
+{% endblock %}
